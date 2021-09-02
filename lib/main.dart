@@ -3,6 +3,7 @@ import 'package:appcenter/appcenter.dart';
 import 'package:appcenter_analytics/appcenter_analytics.dart';
 import 'package:appcenter_crashes/appcenter_crashes.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_appcenter_bundle/flutter_appcenter_bundle.dart';
 
 void main() {
   runApp(MyApp());
@@ -102,7 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
           ],
         ),
@@ -115,15 +119,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void initAppCenter() async{
-    final ios = defaultTargetPlatform == TargetPlatform.iOS;
-    var app_secret = ios ? "" : "e87e9979-adff-46f5-96ad-5705f19b566b";
-
-    await AppCenter.start(app_secret, [AppCenterAnalytics.id, AppCenterCrashes.id]);
+  void initAppCenter() async {
+    await AppCenter.startAsync(
+        appSecretAndroid: "e87e9979-adff-46f5-96ad-5705f19b566b",
+        appSecretIOS: "appSecretIOS");
   }
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     initAppCenter();
   }

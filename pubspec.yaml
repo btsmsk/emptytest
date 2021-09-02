@@ -23,9 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  appcenter: ^0.2.1
-  appcenter_analytics: ^0.2.1
-  appcenter_crashes: ^0.2.1
+  flutter_appcenter_bundle: ^3.3.2
 
 
   # The following adds the Cupertino Icons font to your application.
