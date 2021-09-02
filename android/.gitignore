@@ -1,4 +1,4 @@
-/.gradle
-/captures/
-/local.properties
-GeneratedPluginRegistrant.java
+**/android/.gradle
+**/android/captures/
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
