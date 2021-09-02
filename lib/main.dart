@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:appcenter/appcenter.dart';
-import 'package:appcenter_analytics/appcenter_analytics.dart';
-import 'package:appcenter_crashes/appcenter_crashes.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_appcenter_bundle/flutter_appcenter_bundle.dart';
 
 void main() {
   runApp(MyApp());
@@ -117,18 +113,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-
-  void initAppCenter() async {
-    await AppCenter.startAsync(
-        appSecretAndroid: "e87e9979-adff-46f5-96ad-5705f19b566b",
-        appSecretIOS: "appSecretIOS");
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initAppCenter();
   }
 }
 
