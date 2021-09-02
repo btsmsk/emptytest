@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:appcenter/appcenter.dart';
+import 'package:appcenter_analytics/appcenter_analytics.dart';
+import 'package:appcenter_crashes/appcenter_crashes.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
   runApp(MyApp());
@@ -110,4 +114,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  void initAppCenter() async{
+    final ios = defaultTargetPlatform == TargetPlatform.iOS;
+    var app_secret = ios ? "" : "e87e9979-adff-46f5-96ad-5705f19b566b";
+
+    await AppCenter.start(app_secret, [AppCenterAnalytics.id, AppCenterCrashes.id]);
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    initAppCenter();
+  }
 }
+
+
